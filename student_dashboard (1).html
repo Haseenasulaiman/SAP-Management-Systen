@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAP</title>
+    <link rel="stylesheet" type="text/css" href="student_dashboard.css">
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Function to open modal
+            window.openForm = function(modalId) {
+                const modal = document.getElementById(modalId);
+                if (modal) {
+                    modal.style.display = "block";
+                }
+            }
+        
+            // Function to close modal
+            window.closeForm = function(modalId) {
+                const modal = document.getElementById(modalId);
+                if (modal) {
+                    modal.style.display = "none";
+                }
+            }
+        
+            // Close modal when clicking outside
+            window.onclick = function(event) {
+                if (event.target.classList.contains('modal')) {
+                    event.target.style.display = "none";
+                }
+            }
+        
+            // Add event listeners to all forms
+            document.querySelectorAll('form').forEach((form, index) => {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // Add your form submission logic here
+                    console.log('Form submitted:', index + 1);
+                });
+            });
+        });
+</script>
+
+</head>
+<body>
+    <!-- Card Section -->
+    <div class="container">
+        <!-- 9 Cards -->
+        <div class="card">
+            <h3>Paper Presentation</h3>
+            <p></p>
+            <p>Max points : 75</p>
+            <div class="siz">
+            <button type="submit" onclick="openForm('modal1')">Submit</button>
+        </div>
+        </div>
+        <div class="card">
+            <h3>Project Presentation</h3>
+            <p></p>
+            <p>Max points : 100</p>
+            <div class="siz">
+                <button type="submit" onclick="openForm('modal2')">Submit</button>
+            </div>
+        </div>
+        <div class="card">
+            <h3>Techno Managerial Events</h3>
+            <p></p>
+            <p>Max points : 75</p>
+            <button type="submit" onclick="openForm('modal3')">Submit</button>
+        </div>
+        <div class="card">
+            <h3>Sports & Games</h3>
+            <p></p>
+            <p>Max points : 100</p>
+            <div class="siz">
+                <button type="submit" onclick="openForm('modal4')">Submit</button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="ad">
+            <h3>Membership</h3>
+        </div>
+            <p></p>
+            <p>Max points : 50</p>
+            <div class="siz">
+                <button type="submit"  onclick="openForm('modal5')">Submit</button>
+            </div>
+        </div>
+        <div class="card">
+            <h3>Leadership/ Organizing Events</h3>
+            <p></p>
+            <p>Max points : 100</p>
+            <button type="submit" onclick="openForm('modal6')">Submit</button>
+        </div>
+        <div class="card">
+            <h3>VAC/ Online courses</h3>
+            <p></p>
+            <p>Max points : 100</p>
+            <button type="submit" onclick="openForm('modal7')">Submit</button>
+        </div>
+        <div class="card">
+            <h3>Project to Paper/ Patent/ Copyright</h3>
+            <p></p>
+            <p>Max points : 100</p>
+            <button type="submit" onclick="openForm('modal8')">Submit</button>
+        </div>
+        <div class="card">
+            <h3>GATE/ CAT/ Govt Exams</h3>
+            <p></p>
+            <p>Max points : 100</p>
+            <button type="submit" onclick="openForm('modal9')">Submit</button>
+        </div>
+        <div class="card">
+            <h3>Placement & Internship</h3>
+            <p></p>
+            <p>Max points : 50</p>
+            <button type="submit" onclick="openForm('modal10')">Submit</button>
+        </div>
+        <div class="card">
+            <h3>Entrepreneurship</h3>
+            <p></p>
+            <p>Max points : 100</p>
+            <div class="siz">
+                <button type="submit" onclick="openForm('modal11')">Submit</button>
+            </div>
+        </div>
+        <div class="card">
+            <h3>Social Activities</h3>
+            <p></p>
+            <p>Max points : 50</p>
+            <button type="submit" onclick="openForm('modal12')">Submit</button>
+        </div>
+        <!-- Modal Form -->
+<!-- Modal Form -->
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeForm('modal1')">&times;</span>
+        <h2>Submit Your Activity</h2>
+        <form id="activityForm1" onsubmit="submitActivity(event, 'paper_presentation')"></form>
+            <!-- Type of Institution Dropdown -->
+            <div class="form-group">
+                <label for="name1">Name:</label>
+                <input type="text" id="name1" name="student_name" placeholder="Ex:ABISHAREBEKKAL T " required>
+            </div>
+            
+            <div class="form-group">
+                <label for="rollno1">Roll Number:</label>
+                <input type="text" id="rollno1" name="roll_number" placeholder="Ex:23ITR001" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="eventName1">Event Name:</label>
+                <input type="text" id="eventName1" name="event_name" placeholder="Ex:EXODIA'24" required>
+            </div>
+
+            <div class="form-group">
+                <label for="eventTime1">Event Date:</label>
+                <input type="date" id="eventTime1" name="event_time" required>
+            </div><br>
+
+            <label for="institution1">Type of Institution:</label>
+            <select id="institution1" name="institution" required>
+                <option value="" disabled selected>Select Institution Type</option>
+                <option value="school">Inside KEC</option>
+                <option value="college">Outside KEC</option>
+                <option value="university">Premier Institute</option>
+            </select>
+
+            <!-- Participation Type Radio Buttons -->
+            <label>Participation Type:</label>
+            <div class="radio-group">
+                <input type="radio" id="participated1" name="participation" value="participated" required>
+                <label for="participated1">Participated</label>
+                <input type="radio" id="prize1" name="participation" value="prize">
+                <label for="prize1">Prize</label>
+            </div>
+
+            <!-- File Upload -->
+            <label for="proof1">Upload Proof:</label>
+            <input type="file" id="proof1" name="proof" accept=".pdf, .jpg, .jpeg, .png" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+<div id="modal2" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeForm('modal2')">&times;</span>
+        <h2>Submit Your Activity</h2>
+        <form action="submit_form.php" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="name2">Name:</label>
+                <input type="text" id="name2" name="student_name" placeholder="Ex:ABISHAREBEKKAL T " required>
+            </div>
+            
+            <div class="form-group">
+                <label for="rollno1">Roll Number:</label>
+                <input type="text" id="rollno2" name="roll_number" placeholder="Ex:23ITR001" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="eventName2">Event Name:</label>
+                <input type="text" id="eventName2" name="event_name" placeholder="Ex:EXODIA'24" required>
+            </div>
+
+            <div class="form-group">
+                <label for="eventTime2">Event Date:</label>
+                <input type="date" id="eventTime2" name="event_time" required>
+            </div>
+            <!-- Type of Institution Dropdown -->
+            <label for="institution2">Type of Institution:</label>
+            <select id="institution2" name="institution" required>
+                <option value="" disabled selected>Select Institution Type</option>
+                <option value="school">Inside KEC</option>
+                <option value="college">Outside KEC</option>
+                <option value="university">Premier Institute</option>
+            </select>
+
+            <!-- Participation Type Radio Buttons -->
+            <label>Participation Type:</label>
+            <div class="radio-group">
+                <input type="radio" id="participated2" name="participation" value="participated" required>
+                <label for="participated2">Participated</label>
+                <input type="radio" id="prize2" name="participation" value="prize">
+                <label for="prize2">Prize</label>
+            </div>
+
+            <!-- File Upload -->
+            <label for="proof2">Upload Proof:</label>
+            <input type="file" id="proof2" name="proof" accept=".pdf, .jpg, .jpeg, .png" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+<div id="modal3" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeForm('modal3')">&times;</span>
+        <h2>Submit Your Activity</h2>
+        <form action="submit_form.php" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="name3">Name:</label>
+                <input type="text" id="name3" name="student_name" placeholder="Ex:ABISHAREBEKKAL T " required>
+            </div>
+            
+            <div class="form-group">
+                <label for="rollno3">Roll Number:</label>
+                <input type="text" id="rollno3" name="roll_number" placeholder="Ex:23ITR001" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="eventName3">Event Name:</label>
+                <input type="text" id="eventName3" name="event_name" placeholder="Ex:EXODIA'24" required>
+            </div>
+
+            <div class="form-group">
+                <label for="eventTime3">Event Date:</label>
+                <input type="date" id="eventTime3" name="event_time" required>
+            </div>
+            <!-- Type of Institution Dropdown -->
+            <label for="institution3">Participation Level:</label>
+            <select id="institution3" name="institution" required>
+                <option value="" disabled selected>Select Institution Type</option>
+                <option value="school">Inside KEC</option>
+                <option value="college">Outside KEC</option>
+                <option value="university">State Level</option>
+                <option value="university">National/ International Level</option>
+            </select>
+
+            <!-- Participation Type Radio Buttons -->
+            <label>Participation Type:</label>
+            <div class="radio-group">
+                <input type="radio" id="participated3" name="participation" value="participated" required>
+                <label for="participated3">Participated</label>
+                <input type="radio" id="prize3" name="participation" value="prize">
+                <label for="prize3">Prize</label>
+            </div>
+
+            <!-- File Upload -->
+            <label for="proof3">Upload Proof:</label>
+            <input type="file" id="proof3" name="proof" accept=".pdf, .jpg, .jpeg, .png" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+<div id="modal4" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeForm('modal4')">&times;</span>
+        <h2>Submit Your Activity</h2>
+        <form action="submit_form.php" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="name4">Name:</label>
+                <input type="text" id="name4" name="student_name" placeholder="Ex:ABISHAREBEKKAL T " required>
+            </div>
+
+            <div class="form-group">
+                <label for="rollno4">Roll Number:</label>
+                <input type="text" id="rollno4" name="roll_number" placeholder="Ex:23ITR001" required>
+            </div>
+            <div class="form-group">
+                <label for="eventName4">Event Name:</label>
+                <input type="text" id="eventName4" name="event_name" placeholder="Ex:EXODIA'24" required>
+            </div>
+            <!-- Type of Institution Dropdown -->
+            <label for="institution4">Participation Level:</label>
+            <select id="institution4" name="institution" required>
+                <option value="" disabled selected>Select Institution Type</option>
+                <option value="school">Inside KEC</option>
+                <option value="college">Zone Level/ Outside college</option>
+                <option value="university">State/ Inter Zone Level</option>
+                <option value="university">National/ Inter-National Level</option>
+            </select>
+
+            <!-- Participation Type Radio Buttons -->
+            <label>Participation Type:</label>
+            <div class="radio-group">
+                <input type="radio" id="participated4" name="participation" value="participated" required>
+                <label for="participated4">Participated</label>
+                <input type="radio" id="prize4" name="participation" value="prize">
+                <label for="prize4">Prize</label>
+            </div>
+
+            <!-- File Upload -->
+            <label for="proof4">Upload Proof:</label>
+            <input type="file" id="proof4" name="proof" accept=".pdf, .jpg, .jpeg, .png" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+<div id="modal5" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeForm('modal5')">&times;</span>
+        <h2>Submit Your Activity</h2>
+        <form action="submit_form.php" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="name5">Name:</label>
+                <input type="text" id="name5" name="student_name" placeholder="Ex:ABISHAREBEKKAL T " required>
+            </div>
+
+            <div class="form-group">
+                <label for="rollno5">Roll Number:</label>
+                <input type="text" id="rollno5" name="roll_number" placeholder="Ex:23ITR001" required>
+            </div>
+
+            <div class="form-group">
+                <label for="eventName5">Society/Club Name:</label>
+                <input type="text" id="eventName5" name="event_name" required>
+            </div>
+            <!-- Type of Institution Dropdown -->
+            <label for="institution5">Type of Institution:</label>
+            <select id="institution5" name="institution" required>
+                <option value="" disabled selected>Select Membership Type</option>
+                <option value="school">NCC/ NSS</option>
+                <option value="college">Professional Society</option>
+                <option value="university">Clubs</option>
+            </select>
+
+            <!-- File Upload -->
+            <label for="proof5">Upload Proof:</label>
+            <input type="file" id="proof5" name="proof" accept=".pdf, .jpg, .jpeg, .png" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+<div id="modal6" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeForm('modal6')">&times;</span>
+        <h2>Submit Your Activity</h2>
+        <form action="submit_form.php" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="name6">Name:</label>
+                <input type="text" id="name6" name="student_name" placeholder="Ex:ABISHAREBEKKAL T " required>
+            </div>
+
+            <div class="form-group">
+                <label for="rollno6">Roll Number:</label>
+                <input type="text" id="rollno6" name="roll_number" placeholder="Ex:23ITR001" required>
+            </div>
+            <!-- Type of Institution Dropdown -->
+            <label for="institution6">Select:</label>
+            <select id="institution6" name="institution" required>
+                <option value="school">Chairman/ Secretary/ Treasurer ect</option>
+                <option value="college">Joint Secretary/ Vice Chairman ect</option>
+                <option value="university">EC Member</option>
+                <option value="another">Class Representative/ Placement Coordinator/ Cell Coordinator/ IV or IPT Coordinator</option>
+            </select>
+
+            <!-- File Upload -->
+            <label for="proof6">Upload Proof:</label>
+            <input type="file" id="proof6" name="proof" accept=".pdf, .jpg, .jpeg, .png" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+<div id="modal7" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeForm('modal7')">&times;</span>
+        <h2>Submit Your Activity</h2>
+        <form action="submit_form.php" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="name7">Name:</label>
+                <input type="text" id="name7" name="student_name" placeholder="Ex:ABISHAREBEKKAL T " required>
+            </div>
+
+            <div class="form-group">
+                <label for="rollno7">Roll Number:</label>
+                <input type="text" id="rollno7" name="roll_number" placeholder="Ex:23ITR001" required>
+            </div>
+
+            <div class="form-group">
+                <label for="eventName7">Course Name:</label>
+                <input type="text" id="eventName7" name="event_name" placeholder="Ex:EXODIA'24" required>
+            </div>
+            <!-- Type of Institution Dropdown -->
+            <label for="institution7">Type of Courses:</label>
+            <select id="institution7" name="institution" required>
+                <option value="" disabled selected>Select Course type</option>
+                <option value="school">Value Added Course(Noncredit courses)</option>
+                <option value="college">One Credit Courses</option>
+                <option value="university">Two Credit Courses</option>
+                <option value="other">Three Credit Courses</option>
+
+            </select>
+
+            <!-- File Upload -->
+            <label for="proof7">Upload Proof:</label>
+            <input type="file" id="proof7" name="proof" accept=".pdf, .jpg, .jpeg, .png" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+
+<div id="modal8" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeForm('modal8')">&times;</span>
+        <h2>Submit Your Activity</h2>
+        <form action="submit_form.php" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="name8">Name:</label>
+                <input type="text" id="name8" name="student_name" placeholder="Ex:ABISHAREBEKKAL T " required>
+            </div>
+
+            <div class="form-group">
+                <label for="rollno8">Roll Number:</label>
+                <input type="text" id="rollno8" name="roll_number" placeholder="Ex:23ITR001" required>
+            </div>
+            <!-- Type of Institution Dropdown -->
+            <label for="institution8">Project to Paper</label>
+            <select id="institution8" name="institution" required onchange="displaySubdivisions(this.value)">
+                <option value="" disabled selected>Select type</option>
+                <option value="sci">SCI Indexed</option>
+                <option value="wos">WOS/Scopus/Journal Conference</option>
+                <option value="otherJournal">Other Journal Conference</option>
+                <option value="patent">Patent</option>
+                <option value="copyright">Copyright</option>
+            </select>
+
+            <!-- Container to dynamically display subdivisions -->
+            <div id="subdivision-container"></div>
+
+            <!-- File Upload -->
+            <label for="proof8">Upload Proof:</label>
+            <input type="file" id="proof8" name="proof" accept=".pdf, .jpg, .jpeg, .png" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+
+<script>
+function displaySubdivisions(value) {
+    // Clear any existing subdivision content
+    const container = document.getElementById("subdivision-container");
+    container.innerHTML = "";
+
+    // Generate subdivisions based on the selected option
+    if (value === "sci") {
+        container.innerHTML = `
+            <label>SCI Indexed</label>
+            <div class="radio-group">
+                <input type="radio" id="sci-participated" name="sci_participation" value="participated" required>
+                <label for="sci-participated">Submitted</label>
+                <input type="radio" id="sci-published" name="sci_participation" value="published">
+                <label for="sci-published">Published</label>
+            </div>
+        `;
+    } else if (value === "wos") {
+        container.innerHTML = `
+            <label>WOS/Scopus/Journal Conference</label>
+            <div class="radio-group">
+                <input type="radio" id="wos-submitted" name="wos_participation" value="submitted" required>
+                <label for="wos-submitted">Submitted</label>
+                <input type="radio" id="wos-published" name="wos_participation" value="published">
+                <label for="wos-published">Published</label>
+            </div>
+        `;
+    } else if (value === "patent") {
+        container.innerHTML = `
+            <label>Patent</label>
+            <div class="radio-group">
+                <input type="radio" id="patent-applied" name="patent_participation" value="applied" required>
+                <label for="patent-applied">Applied</label>
+                <input type="radio" id="patent-published" name="patent_participation" value="published">
+                <label for="patent-published">Published</label>
+                <input type="radio" id="patent-obtained" name="patent_participation" value="obtained">
+                <label for="patent-obtained">Obtained</label>
+            </div>
+        `;
+    } else if (value === "copyright") {
+        container.innerHTML = `
+            <label>Copyright</label>
+            <div class="radio-group">
+                <input type="radio" id="copyright-applied" name="copyright_participation" value="applied" required>
+                <label for="copyright-applied">Applied</label>
+                <input type="radio" id="copyright-published" name="copyright_participation" value="published">
+                <label for="copyright-published">Published</label>
+            </div>
+        `;
+    }
+}
+</script>
+
+
+<div id="modal9" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeForm('modal9')">&times;</span>
+        <h2>Submit Your Activity</h2>
+        <form action="submit_form.php" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="name9">Name:</label>
+                <input type="text" id="name9" name="student_name" placeholder="Ex:ABISHAREBEKKAL T " required>
+            </div>
+
+            <div class="form-group">
+                <label for="rollno9">Roll Number:</label>
+                <input type="text" id="rollno9" name="roll_number" placeholder="Ex:23ITR001" required>
+            </div>
+
+            <div class="form-group">
+                <label for="eventName9">Exam Name:</label>
+                <input type="text" id="eventName9" name="event_name" placeholder="Ex:EXODIA'24" required>
+            </div>
+            <!-- Type of Institution Dropdown -->
+            <label for="institution9">Type of Qualification:</label>
+            <select id="institution9" name="institution" required>
+                <option value="school">Appeared</option>
+                <option value="college">Qualified in GATE/CAT ect..</option>
+                <option value="university">Good National ranking in GATE/CAT etc..</option>
+                <option value="other">Cleared Govt Exams</option>
+            </select>
+
+            <!-- File Upload -->
+            <label for="proof9">Upload Proof:</label>
+            <input type="file" id="proof9" name="proof" accept=".pdf, .jpg, .jpeg, .png" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+
+<div id="modal10" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeForm('modal10')">&times;</span>
+        <h2>Submit Your Activity</h2>
+        <form action="submit_form.php" method="POST" enctype="multipart/form-data">
+            <!-- Type of Institution Dropdown -->
+            <div class="form-group">
+                <label for="name10">Name:</label>
+                <input type="text" id="name10" name="student_name" placeholder="Ex:ABISHAREBEKKAL T " required>
+            </div>
+
+            <div class="form-group">
+                <label for="rollno10">Roll Number:</label>
+                <input type="text" id="rollno10" name="roll_number" placeholder="Ex:23ITR001" required>
+            </div>
+
+            <div class="form-group">
+                <label for="eventName10">Event Name:</label>
+                <input type="text" id="eventName10" name="event_name" placeholder="Ex:EXODIA'24" required>
+            </div>
+
+            <label for="institution10">Type of Activity:</label>
+            <select id="institution10" name="institution" required>
+                <option value="school">Written Test cleared</option>
+                <option value="college">Placed</option>
+                <option value="university">Placed with Internship</option>
+                <option value="other">Internship without Placement</option>
+            </select>
+
+            <!-- File Upload -->
+            <label for="proof10">Upload Proof:</label>
+            <input type="file" id="proof10" name="proof" accept=".pdf, .jpg, .jpeg, .png" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+<div id="modal11" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeForm('modal11')">&times;</span>
+        <h2>Submit Your Activity</h2>
+        <form action="submit_form.php" method="POST" enctype="multipart/form-data">
+            <!-- Type of Institution Dropdown -->
+            <div class="form-group">
+                <label for="name8">Name:</label>
+                <input type="text" id="name8" name="student_name" placeholder="Ex:ABISHAREBEKKAL T " required>
+            </div>
+
+            <div class="form-group">
+                <label for="rollno11">Roll Number:</label>
+                <input type="text" id="rollno11" name="roll_number" placeholder="Ex:23ITR001" required>
+            </div>
+
+            <div class="form-group">
+                <label for="eventTime11">Event Date:</label>
+                <input type="date" id="eventTime11" name="event_time" required>
+            </div>
+            <label for="institution11">Select your Activity:</label>
+            <select id="institution11" name="institution" required>
+                <option value="school">Workshop attended</option>
+                <option value="college">Registered for start-up</option>
+                <option value="university">Released product</option>
+            </select>
+
+            <!-- File Upload -->
+            <label for="proof11">Upload Proof:</label>
+            <input type="file" id="proof11" name="proof" accept=".pdf, .jpg, .jpeg, .png" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+
+<div id="modal12" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeForm('modal12')">&times;</span>
+        <h2>Submit Your Activity</h2>
+        <form action="submit_form.php" method="POST" enctype="multipart/form-data">
+            <!-- Type of Institution Dropdown -->
+            <div class="form-group">
+                <label for="name12">Name:</label>
+                <input type="text" id="name12" name="student_name" placeholder="Ex:ABISHAREBEKKAL T " required>
+            </div>
+
+            <div class="form-group">
+                <label for="rollno12">Roll Number:</label>
+                <input type="text" id="rollno12" name="roll_number" placeholder="Ex:23ITR001" required>
+            </div>
+            <label for="institution12">Select your Activity:</label>
+            <select id="institution12" name="institution" required>
+                <option value="school">Activites such as Blood donation</option>
+                <option value="college">1 to 2 weeks(NSS/NCC Camp etc.)</option>
+                <option value="university">more than 2 weeks(NSS/NCC Camp etc.)</option>
+            </select>
+
+            <!-- File Upload -->
+            <label for="proof12">Upload Proof:</label>
+            <input type="file" id="proof12" name="proof" accept=".pdf, .jpg, .jpeg, .png" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+</div>
+</body>
+</html>

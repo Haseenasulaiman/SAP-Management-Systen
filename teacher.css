@@ -1,0 +1,41 @@
+body {
+    background-color: #f7f8fc;
+  }
+  
+  .card {
+    border-radius: 10px;
+  }
+  
+  .card-header {
+    font-weight: bold;
+  }
+  
+  .table-hover tbody tr:hover {
+    background-color: #f0f2f5;
+  }
+  
+  .btn-info {
+    color: white;
+    background-color: #17a2b8;
+    border: none;
+  }
+  
+  .modal-content {
+    border-radius: 10px;
+  }
+  
+  .modal-footer .btn-success {
+    background-color: #28a745;
+    border: none;
+  }
+  
+  .modal-footer .btn-danger {
+    background-color: #dc3545;
+    border: none;
+  }
+  
+  .modal-footer .btn-secondary {
+    background-color: #6c757d;
+    border: none;
+  }
+  

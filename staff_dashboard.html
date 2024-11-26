@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teacher Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/staff_dashboard.css') }}">
+</head>
+<body>
+  <div class="container my-5">
+    <!-- Dashboard Header -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2>Teacher Dashboard</h2>
+      <span>Welcome, Kavithra</span>
+    </div>
+
+    <!-- Summary Section -->
+    <div class="row text-center mb-4">
+      <div class="col-md-4">
+        <div class="card p-3 bg-warning text-white">
+          <h5>Pending Submissions</h5>
+          <h3>45</h3>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card p-3 bg-danger text-white">
+          <h5>Rejected Submissions</h5>
+          <h3>15</h3>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card p-3 bg-success text-white">
+          <h5>Approved Submissions</h5>
+          <h3>75</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- Request Table -->
+    <div class="card">
+      <div class="card-header bg-dark text-white">
+        Student Requests
+      </div>
+      <div class="card-body">
+        <table class="table table-hover table-bordered">
+          <thead class="table-dark">
+            <tr>
+              <th>Register Number</th>
+              <th>Name</th>
+              <th>Participation Category</th>
+              <th>Participation Type</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Sample Row -->
+              <td>23ITR001</td>
+              <td>Abisha Rebekkal T</td>
+              <td>Paper presentation</td>
+              <td>Inside KEC</td>
+              <td><span class="badge bg-warning">Pending</span></td>
+              <td><button class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#requestDetailsModal">View</button></td>
+            </tr>
+          </tbody>
+          <tbody>
+            <!-- Sample Row -->
+              <td>23ITR005</td>
+              <td>Anjana B</td>
+              <td>Hackathon</td>
+              <td>Outside KEC</td>
+              <td><span class="badge bg-warning">Pending</span></td>
+              <td><button class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#requestDetailsModal">View</button></td>
+            </tr>
+          </tbody>
+          <tbody>
+            <!-- Sample Row -->
+              <td>23ITR013</td>
+              <td>Bharani R</td>
+              <td>Code clash</td>
+              <td>Inside KEC</td>
+              <td><span class="badge bg-warning">Pending</span></td>
+              <td><button class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#requestDetailsModal">View</button></td>
+            </tr>
+          </tbody>
+          <tbody>
+            <!-- Sample Row -->
+              <td>23ITR058</td>
+              <td>Haseena S</td>
+              <td>Project expo</td>
+              <td>Outside KEC</td>
+              <td><span class="badge bg-warning">Pending</span></td>
+              <td><button class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#requestDetailsModal">View</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Request Details Modal -->
+  <div class="modal fade" id="requestDetailsModal" tabindex="-1" aria-labelledby="requestDetailsLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="requestDetailsLabel">Request Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p><strong>Register Number:</strong> 23ITR001</p>
+          <p><strong>Name:</strong> Abisha Rebekkal T</p>
+          <p><strong>Participation Category:</strong> Paper presentation</p>
+          <p><strong>Participation Type:</strong> Inside KEC</p>
+          <p><strong>Status:</strong> Pending</p>
+          <p><strong>Submitted File:</strong> <a href="path/to/student/file.pdf" target="_blank">View File</a></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success">Approve</button>
+          <button type="button" class="btn btn-danger">Reject</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
